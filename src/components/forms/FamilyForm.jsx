@@ -1055,7 +1055,7 @@ const FamilyForm = ({
                     </th>
                     <th
                       className="px-2 py-2 text-left text-xs font-bold text-gray-700 uppercase border border-gray-300"
-                      style={{ width: "140px" }}
+                      style={{ width: "120px" }}
                     >
                       DOB
                     </th>
@@ -1085,7 +1085,7 @@ const FamilyForm = ({
                     </th>
                     <th
                       className="px-2 py-2 text-left text-xs font-bold text-gray-700 uppercase border border-gray-300"
-                      style={{ width: "190px" }}
+                      style={{ width: "170px" }}
                     >
                       BUSINESS ACTIVITY
                     </th>
