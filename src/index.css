@@ -1,0 +1,33 @@
+@import "tailwindcss";
+/* Add this if tables are collapsing */
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+tbody tr:last-child td {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* Ensure table cells have proper padding */
+td,
+th {
+  padding: 1rem;
+}
+
+.font-gujarati {
+  font-family: "Noto Sans Gujarati", "Gujarati Sangam MN", "Shruti", sans-serif;
+  direction: ltr;
+}
+
+/* For better Gujarati text display in inputs */
+input.font-gujarati,
+textarea.font-gujarati {
+  font-size: 1.1em;
+  letter-spacing: 0.5px;
+}
+
+/* Add to your global CSS file */
+.font-gujarati {
+  font-family: "Noto Sans Gujarati", "Gujarati Sangam MN", "Shruti", sans-serif;
+}
