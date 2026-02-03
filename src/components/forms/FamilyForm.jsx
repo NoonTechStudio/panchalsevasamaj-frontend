@@ -1049,7 +1049,7 @@ const FamilyForm = ({
                     </th>
                     <th
                       className="px-2 py-2 text-left text-xs font-bold text-gray-700 uppercase border border-gray-300"
-                      style={{ width: "120px" }}
+                      style={{ width: "130px" }}
                     >
                       NATIVE PLACE
                     </th>
@@ -1067,7 +1067,7 @@ const FamilyForm = ({
                     </th>
                     <th
                       className="px-2 py-2 text-left text-xs font-bold text-gray-700 uppercase border border-gray-300"
-                      style={{ width: "70px" }}
+                      style={{ width: "100px" }}
                     >
                       GENDER
                     </th>
