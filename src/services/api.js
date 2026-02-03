@@ -39,33 +39,33 @@ api.interceptors.response.use(
   },
 );
 
-// Auth API
+// Auth API - FIXED: Added /api prefix
 export const authAPI = {
-  login: (credentials) => api.post("/auth/login", credentials),
-  register: (userData) => api.post("/auth/register", userData),
+  login: (credentials) => api.post("/api/auth/login", credentials),
+  register: (userData) => api.post("/api/auth/register", userData),
 };
 
-// Families API
+// Families API - FIXED: Added /api prefix
 export const familiesAPI = {
-  getAll: (params) => api.get("/families", { params }),
-  getById: (id) => api.get(`/families/${id}`),
-  create: (familyData) => api.post("/families", familyData),
-  update: (id, familyData) => api.put(`/families/${id}`, familyData),
-  delete: (id) => api.delete(`/families/${id}`),
+  getAll: (params) => api.get("/api/families", { params }),
+  getById: (id) => api.get(`/api/families/${id}`),
+  create: (familyData) => api.post("/api/families", familyData),
+  update: (id, familyData) => api.put(`/api/families/${id}`, familyData),
+  delete: (id) => api.delete(`/api/families/${id}`),
   addMember: (familyId, memberData) =>
-    api.post(`/families/${familyId}/members`, memberData),
+    api.post(`/api/families/${familyId}/members`, memberData),
   updateMember: (memberId, memberData) =>
-    api.put(`/families/members/${memberId}`, memberData),
-  deleteMember: (memberId) => api.delete(`/families/members/${memberId}`),
+    api.put(`/api/families/members/${memberId}`, memberData),
+  deleteMember: (memberId) => api.delete(`/api/families/members/${memberId}`),
 };
 
-// Deceased API
+// Deceased API - FIXED: Added /api prefix
 export const deceasedAPI = {
-  getAll: (params) => api.get("/deceased", { params }),
-  getById: (id) => api.get(`/deceased/${id}`), // Add this line
-  create: (data) => api.post("/deceased", data),
-  update: (id, data) => api.put(`/deceased/${id}`, data),
-  delete: (id) => api.delete(`/deceased/${id}`),
+  getAll: (params) => api.get("/api/deceased", { params }),
+  getById: (id) => api.get(`/api/deceased/${id}`),
+  create: (data) => api.post("/api/deceased", data),
+  update: (id, data) => api.put(`/api/deceased/${id}`, data),
+  delete: (id) => api.delete(`/api/deceased/${id}`),
 };
 
 export default api;
