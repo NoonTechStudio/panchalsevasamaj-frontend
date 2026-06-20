@@ -1,11 +1,18 @@
-// Update src/components/layout/Header.jsx
 import { useState } from "react";
 import { Bell, User, ChevronDown, Menu, X } from "lucide-react";
 import { useAuth } from "../../context/AuthContext";
+import { useTranslation } from "react-i18next";
 
 const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const { user, logout } = useAuth();
+  const { i18n } = useTranslation();
+
+  const toggleLanguage = () => {
+    const newLang = i18n.language === "en" ? "gu" : "en";
+    i18n.changeLanguage(newLang);
+    localStorage.setItem("language", newLang);
+  };
 
   return (
     <>
@@ -28,6 +35,19 @@ const Header = () => {
           </div>
 
           <div className="flex items-center space-x-4">
+            {/* Language Toggle */}
+            <button
+              onClick={toggleLanguage}
+              className="flex items-center px-3 py-1.5 rounded-lg border-2 border-blue-500 text-sm font-semibold transition-colors duration-200 hover:bg-blue-50"
+              title="Switch Language / ભાષા બદલો"
+            >
+              {i18n.language === "en" ? (
+                <span className="text-blue-700">EN | <span className="font-gujarati">ગુજ</span></span>
+              ) : (
+                <span className="text-blue-700"><span className="font-gujarati">ગુજ</span> | EN</span>
+              )}
+            </button>
+
             <button className="p-1 text-gray-400 hover:text-gray-500 relative">
               <Bell className="h-6 w-6" />
               <span className="absolute top-0 right-0 block h-2 w-2 rounded-full bg-red-400 ring-2 ring-white"></span>

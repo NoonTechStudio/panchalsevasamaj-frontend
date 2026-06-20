@@ -1,6 +1,9 @@
 // src/utils/exportToExcel.js
 import * as XLSX from "xlsx";
 import { saveAs } from "file-saver";
+import i18n from "../i18n.js";
+
+const t = (key) => i18n.t(key);
 
 /**
  * Export families data to Excel with filtering options
@@ -95,30 +98,30 @@ export const exportFamiliesToExcel = (
 
       return {
         "Sr. No.": index + 1,
-        "Family ID":
+        [t("familyId")]:
           family.familyId ||
           `FAM-${String(family.serialNumber).padStart(3, "0")}`,
         "Member No.":
           family.formFiller?.memberNo || family.serialNumber || "N/A",
-        "Head of Family": family.headOfFamily?.fullName || "N/A",
-        "Head Occupation": family.headOfFamily?.occupation || "",
-        "Mobile Number": family.contact?.mobile || "",
-        Email: family.contact?.email || "",
+        [t("headOfFamily")]: family.headOfFamily?.fullName || "N/A",
+        [t("occupation")]: family.headOfFamily?.occupation || "",
+        [t("mobile")]: family.contact?.mobile || "",
+        [t("email")]: family.contact?.email || "",
         "Home Address": family.homeAddress?.address || "",
-        "Home Area": family.homeAddress?.area || "",
-        "Home City": family.homeAddress?.city || "",
+        [t("area")]: family.homeAddress?.area || "",
+        [t("city")]: family.homeAddress?.city || "",
         "Home Pincode": family.homeAddress?.pincode || "",
         "Correspondence Address": family.correspondenceAddress?.address || "",
-        "City (Branch)":
+        [t("cityArea")]:
           family.correspondenceAddress?.branch ||
           family.correspondenceAddress?.area ||
           "",
         "Correspondence City": family.correspondenceAddress?.city || "",
         "Correspondence Pincode": family.correspondenceAddress?.pincode || "",
         "Total Members": members.length,
-        "Family Members": memberDetails,
-        "Added Date": new Date(family.createdAt).toLocaleDateString("en-IN"),
-        Notes: family.notes || "",
+        [t("familyMembers")]: memberDetails,
+        [t("addedDate")]: new Date(family.createdAt).toLocaleDateString("en-IN"),
+        "Notes": family.notes || "",
       };
     });
 
@@ -231,21 +234,21 @@ export const exportDeceasedToExcel = (
     // Transform data
     const excelData = filteredData.map((record, index) => ({
       "Sr. No.": index + 1,
-      Name: record.fullName || "N/A",
-      "Date of Death": record.dateOfDeath
+      [t("name")]: record.fullName || "N/A",
+      [t("dateOfDeath")]: record.dateOfDeath
         ? new Date(record.dateOfDeath).toLocaleDateString("en-IN")
         : "N/A",
-      "Age at Death": record.ageAtDeath ? `${record.ageAtDeath} years` : "N/A",
-      Gender: record.gender || "N/A",
+      [t("ageAtDeath")]: record.ageAtDeath ? `${record.ageAtDeath} years` : "N/A",
+      [t("gender")]: record.gender || "N/A",
       "Relation to Head": record.relationToHead || "",
       "Father/Husband Name": record.fatherOrHusbandName || "",
-      City: record.city || "",
-      Area: record.area || "",
-      Address: record.address || "",
-      "Cause of Death": record.causeOfDeath || "",
+      [t("city")]: record.city || "",
+      [t("area")]: record.area || "",
+      [t("address")]: record.address || "",
+      [t("causeOfDeath")]: record.causeOfDeath || "",
       "Last Rites Place": record.lastRitesPlace || "",
-      "Added Date": new Date(record.createdAt).toLocaleDateString("en-IN"),
-      Notes: record.notes || "",
+      [t("addedDate")]: new Date(record.createdAt).toLocaleDateString("en-IN"),
+      "Notes": record.notes || "",
     }));
 
     // Create workbook

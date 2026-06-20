@@ -27,8 +27,10 @@ import CommunityLogo from "../assets/SamajLogo.png";
 import UserMenu from "../components/layout/UserMenu";
 import toast from "react-hot-toast";
 import LordPhoto from "../assets/Photo.png";
+import { useTranslation } from "react-i18next";
 
 const Dashboard = () => {
+  const { t } = useTranslation();
   const [showFamilyForm, setShowFamilyForm] = useState(false);
   const [showDeceasedForm, setShowDeceasedForm] = useState(false);
   const [deleteConfirmFamily, setDeleteConfirmFamily] = useState(null);
@@ -354,7 +356,7 @@ const Dashboard = () => {
               <div className="flex items-center">
                 <Heart className="h-6 w-6 text-red-600 mr-2" />
                 <h3 className="text-xl font-bold text-gray-900">
-                  Confirm Delete
+                  {t('confirmDelete')}
                 </h3>
               </div>
               <button
@@ -367,7 +369,7 @@ const Dashboard = () => {
 
             <div className="mb-6">
               <p className="text-gray-700 mb-4">
-                Are you sure you want to delete this deceased record?
+                {t('areYouSureDeceased')}
               </p>
               <div className="bg-red-50 p-4 rounded-lg border border-red-200">
                 <div className="text-sm">
@@ -388,7 +390,7 @@ const Dashboard = () => {
                 </div>
               </div>
               <p className="text-sm text-red-600 mt-4 font-medium">
-                ⚠️ This action cannot be undone.
+                ⚠️ {t('actionCannotBeUndone')}
               </p>
             </div>
 
@@ -398,7 +400,7 @@ const Dashboard = () => {
                 onClick={() => setDeleteConfirmDeceased(null)}
                 className="px-4 py-2.5 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-colors"
               >
-                Cancel
+                {t('cancel')}
               </button>
               <button
                 type="button"
@@ -409,12 +411,12 @@ const Dashboard = () => {
                 {deceasedLoading ? (
                   <>
                     <div className="animate-spin rounded-full h-4 w-4 border-2 border-white border-t-transparent mr-2"></div>
-                    Deleting...
+                    {t('deletingFamily')}
                   </>
                 ) : (
                   <>
                     <Trash2 className="h-4 w-4 mr-2" />
-                    Delete Record
+                    {t('deleteRecord')}
                   </>
                 )}
               </button>
@@ -431,7 +433,7 @@ const Dashboard = () => {
               <div className="flex items-center">
                 <Users className="h-6 w-6 text-red-600 mr-2" />
                 <h3 className="text-xl font-bold text-gray-900">
-                  Confirm Delete Family
+                  {t('confirmDeleteFamily')}
                 </h3>
               </div>
               <button
@@ -444,7 +446,7 @@ const Dashboard = () => {
 
             <div className="mb-6">
               <p className="text-gray-700 mb-4">
-                Are you sure you want to delete this family and all its members?
+                {t('areYouSureFamily')}
               </p>
               <div className="bg-red-50 p-4 rounded-lg border border-red-200">
                 <div className="text-sm">
@@ -468,8 +470,7 @@ const Dashboard = () => {
                 </div>
               </div>
               <p className="text-sm text-red-600 mt-4 font-medium">
-                ⚠️ This will delete the family and all associated members. This
-                action cannot be undone.
+                ⚠️ {t('areYouSureFamily')} {t('actionCannotBeUndone')}
               </p>
             </div>
 
@@ -479,7 +480,7 @@ const Dashboard = () => {
                 onClick={() => setDeleteConfirmFamily(null)}
                 className="px-4 py-2.5 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-colors"
               >
-                Cancel
+                {t('cancel')}
               </button>
               <button
                 type="button"
@@ -490,12 +491,12 @@ const Dashboard = () => {
                 {deletingFamily ? (
                   <>
                     <div className="animate-spin rounded-full h-4 w-4 border-2 border-white border-t-transparent mr-2"></div>
-                    Deleting...
+                    {t('deletingFamily')}
                   </>
                 ) : (
                   <>
                     <Trash2 className="h-4 w-4 mr-2" />
-                    Delete Family
+                    {t('deleteFamily')}
                   </>
                 )}
               </button>
@@ -576,10 +577,10 @@ const Dashboard = () => {
               {/* Dashboard Title Section */}
               <div className="text-center mt-4">
                 <h1 className="text-2xl font-semibold text-gray-900">
-                  Dashboard
+                  {t('dashboard')}
                 </h1>
                 <p className="mt-1 text-sm text-gray-600">
-                  Welcome to Community Family Records Portal
+                  {t('welcome')}
                 </p>
               </div>
 
@@ -590,14 +591,14 @@ const Dashboard = () => {
                   onClick={handleAddNewFamily}
                 >
                   <Plus className="mr-2 h-5 w-5" />
-                  Add Family
+                  {t('addFamily')}
                 </button>
                 <button
                   className="btn-secondary bg-linear-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center transform hover:-translate-y-1"
                   onClick={() => setShowDeceasedForm(true)}
                 >
                   <Plus className="mr-2 h-5 w-5" />
-                  Add Deceased
+                  {t('addDeceased')}
                 </button>
 
                 {/* Logout Button */}
@@ -612,7 +613,7 @@ const Dashboard = () => {
                   className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center transform hover:-translate-y-1"
                 >
                   <LogOut className="mr-2 h-5 w-5" />
-                  Logout
+                  {t('logout')}
                 </button>
 
                 <button
@@ -620,7 +621,7 @@ const Dashboard = () => {
                   onClick={() => setShowExportModal(true)}
                 >
                   <Download className="mr-2 h-5 w-5" />
-                  Export Data
+                  {t('exportData')}
                 </button>
               </div>
             </div>
@@ -638,7 +639,7 @@ const Dashboard = () => {
               <div className="ml-5 w-0 flex-1">
                 <dl>
                   <dt className="text-sm font-medium text-blue-700 truncate">
-                    Total Families
+                    {t('totalFamilies')}
                   </dt>
                   <dd className="text-2xl font-bold text-gray-900">
                     {loading ? "..." : stats.totalFamilies}
@@ -658,7 +659,7 @@ const Dashboard = () => {
               <div className="ml-5 w-0 flex-1">
                 <dl>
                   <dt className="text-sm font-medium text-green-700 truncate">
-                    Total Members
+                    {t('totalMembers')}
                   </dt>
                   <dd className="text-2xl font-bold text-gray-900">
                     {loading ? "..." : stats.totalMembers}
@@ -678,7 +679,7 @@ const Dashboard = () => {
               <div className="ml-5 w-0 flex-1">
                 <dl>
                   <dt className="text-sm font-medium text-amber-700 truncate">
-                    Areas Covered
+                    {t('areasCovered')}
                   </dt>
                   <dd className="text-2xl font-bold text-gray-900">
                     {loading ? "..." : stats.areasCovered}
@@ -698,7 +699,7 @@ const Dashboard = () => {
               <div className="ml-5 w-0 flex-1">
                 <dl>
                   <dt className="text-sm font-medium text-red-700 truncate">
-                    Deceased
+                    {t('deceased')}
                   </dt>
                   <dd className="text-2xl font-bold text-gray-900">
                     {loading ? "..." : stats.deceased}
@@ -723,7 +724,7 @@ const Dashboard = () => {
               <input
                 type="search"
                 className="block w-full pl-10 pr-3 py-3 border-2 border-gray-300 rounded-xl leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 sm:text-sm transition-colors duration-300"
-                placeholder="Search families by name, area, mobile, Aadhar..."
+                placeholder={t('searchPlaceholder')}
                 value={searchTerm}
                 onChange={handleSearchChange} // Changed from (e) => setSearchTerm(e.target.value)
               />
@@ -759,7 +760,7 @@ const Dashboard = () => {
               className="btn-primary bg-linear-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-3 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center"
             >
               <Search className="mr-2 h-4 w-4" />
-              Search
+              {t('search')}
             </button>
             <button
               type="button"
@@ -779,14 +780,14 @@ const Dashboard = () => {
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
             <div>
               <h3 className="text-xl font-bold text-gray-900">
-                Family Records
+                {t('familyRecords')}
               </h3>
               <p className="mt-1 text-sm text-gray-600">
-                List of all registered families in the community
+                {t('familyRecordsSubtitle')}
                 {searchTerm && (
                   <span className="text-blue-600 font-medium">
                     {" "}
-                    - Showing results for "{searchTerm}"
+                    - {t('showingResultsFor')} "{searchTerm}"
                   </span>
                 )}
               </p>
@@ -830,7 +831,7 @@ const Dashboard = () => {
                 className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 shadow-md hover:shadow-lg transition-all duration-300"
               >
                 <Download className="h-4 w-4 mr-2" />
-                Export
+                {t('export')}
               </button>
             </div> */}
           </div>
@@ -842,7 +843,7 @@ const Dashboard = () => {
             <div className="px-6 py-16 text-center">
               <div className="animate-spin rounded-full h-14 w-14 border-4 border-blue-600 border-t-transparent mx-auto"></div>
               <p className="mt-6 text-gray-500 text-lg font-medium">
-                Loading families...
+                {t('loadingFamilies')}
               </p>
             </div>
           ) : (
@@ -851,22 +852,22 @@ const Dashboard = () => {
                 <thead className="bg-gradient-to-r from-gray-50 to-gray-100">
                   <tr>
                     <th className="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
-                      Family ID
+                      {t('familyId')}
                     </th>
                     <th className="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
-                      Head of Family
+                      {t('headOfFamily')}
                     </th>
                     <th className="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
-                      Contact
+                      {t('contact')}
                     </th>
                     <th className="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
-                      City [Area]
+                      {t('cityArea')}
                     </th>
                     <th className="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
-                      Added Date
+                      {t('addedDate')}
                     </th>
                     <th className="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
-                      Actions
+                      {t('actions')}
                     </th>
                   </tr>
                 </thead>
@@ -938,14 +939,14 @@ const Dashboard = () => {
                               className="inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded-md text-white bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 shadow-md hover:shadow-lg transition-all duration-300"
                             >
                               <Eye className="h-3.5 w-3.5 mr-1.5" />
-                              View
+                              {t('view')}
                             </button>
                             <button
                               onClick={() => handleEditFamily(family)}
                               className="inline-flex items-center px-3 py-1.5 border-2 border-gray-300 text-xs font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 hover:border-blue-500 shadow-md hover:shadow-lg transition-all duration-300"
                             >
                               <Edit className="h-3.5 w-3.5 mr-1.5" />
-                              Edit
+                              {t('edit')}
                             </button>
                             {/* Add Delete Button */}
                             <button
@@ -954,7 +955,7 @@ const Dashboard = () => {
                               title="Delete Family"
                             >
                               <Trash2 className="h-3.5 w-3.5 mr-1.5" />
-                              Delete
+                              {t('delete')}
                             </button>
                           </div>
                         </td>
@@ -967,12 +968,12 @@ const Dashboard = () => {
                           <Users className="h-10 w-10 text-gray-400" />
                         </div>
                         <h3 className="mt-6 text-lg font-bold text-gray-900">
-                          No families found
+                          {t('noFamiliesFound')}
                         </h3>
                         <p className="mt-2 text-gray-500">
                           {searchTerm
-                            ? "No families match your search. Try a different search term or"
-                            : "Get started by adding your first family"}
+                            ? t('noRecordsFound')
+                            : t('familyRecordsSubtitle')}
                         </p>
                         <div className="mt-6">
                           <button
@@ -980,7 +981,7 @@ const Dashboard = () => {
                             onClick={handleAddNewFamily}
                           >
                             <Plus className="mr-2 h-4 w-4" />
-                            Add Family
+                            {t('addFamily')}
                           </button>
                         </div>
                       </td>
@@ -999,10 +1000,10 @@ const Dashboard = () => {
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
             <div>
               <h3 className="text-xl font-bold text-gray-900">
-                Deceased Records ({stats.deceased})
+                {t('deceasedRecords')} ({stats.deceased})
               </h3>
               <p className="mt-1 text-sm text-gray-600">
-                List of all deceased community members
+                {t('familyRecordsSubtitle')}
               </p>
             </div>
             {/* FIX: Add flex container for buttons */}
@@ -1012,7 +1013,7 @@ const Dashboard = () => {
                 onClick={() => setShowDeceasedForm(true)}
               >
                 <Plus className="mr-2 h-4 w-4" />
-                Add Deceased
+                {t('addDeceased')}
               </button>
               <button
                 onClick={async () => {
@@ -1034,7 +1035,7 @@ const Dashboard = () => {
                 className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 shadow-md hover:shadow-lg transition-all duration-300"
               >
                 <Download className="h-4 w-4 mr-2" />
-                Export
+                {t('export')}
               </button>
             </div>
           </div>
@@ -1045,7 +1046,7 @@ const Dashboard = () => {
             <div className="px-6 py-10 text-center">
               <div className="animate-spin rounded-full h-10 w-10 border-4 border-red-600 border-t-transparent mx-auto"></div>
               <p className="mt-4 text-gray-500 text-sm">
-                Loading deceased records...
+                {t('loadingDeceasedRecords')}
               </p>
             </div>
           ) : (
@@ -1054,28 +1055,28 @@ const Dashboard = () => {
                 <thead className="bg-linear-to-r from-red-50 to-red-100">
                   <tr>
                     <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
-                      Name
+                      {t('name')}
                     </th>
                     <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
-                      Date of Death
+                      {t('dateOfDeath')}
                     </th>
                     <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
-                      Gujarati Date
+                      {t('gujaratiDate')}
                     </th>
                     <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
-                      Age at Death
+                      {t('ageAtDeath')}
                     </th>
                     <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
-                      Gender
+                      {t('gender')}
                     </th>
                     <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
-                      Village/City/Area
+                      {t('villageCityArea')}
                     </th>
                     <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
-                      Cause of Death
+                      {t('causeOfDeath')}
                     </th>
                     <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
-                      Actions
+                      {t('actions')}
                     </th>
                   </tr>
                 </thead>
@@ -1130,7 +1131,7 @@ const Dashboard = () => {
                               title="View Record"
                             >
                               <Eye className="h-3.5 w-3.5 mr-1.5" />
-                              View
+                              {t('view')}
                             </button>
                             <button
                               onClick={() => handleEditDeceased(record)}
@@ -1138,7 +1139,7 @@ const Dashboard = () => {
                               title="Edit Record"
                             >
                               <Edit className="h-3.5 w-3.5 mr-1.5" />
-                              Edit
+                              {t('edit')}
                             </button>
                             <button
                               onClick={() => handleDeleteDeceased(record)}
@@ -1146,7 +1147,7 @@ const Dashboard = () => {
                               title="Delete Record"
                             >
                               <Trash2 className="h-3.5 w-3.5 mr-1.5" />
-                              Delete
+                              {t('delete')}
                             </button>
                           </div>
                         </td>
@@ -1159,11 +1160,10 @@ const Dashboard = () => {
                           <Heart className="h-10 w-10 text-red-400" />
                         </div>
                         <h3 className="mt-6 text-lg font-bold text-gray-900">
-                          No deceased records found
+                          {t('noDeceasedRecordsFound')}
                         </h3>
                         <p className="mt-2 text-gray-500">
-                          Add deceased records to keep track of departed
-                          community members
+                          {t('deceasedMembers')}
                         </p>
                         <div className="mt-6">
                           <button
@@ -1171,7 +1171,7 @@ const Dashboard = () => {
                             onClick={() => setShowDeceasedForm(true)}
                           >
                             <Plus className="mr-2 h-4 w-4" />
-                            Add First Deceased Record
+                            {t('addFirstDeceasedRecord')}
                           </button>
                         </div>
                       </td>
