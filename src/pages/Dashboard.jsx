@@ -28,6 +28,7 @@ import UserMenu from "../components/layout/UserMenu";
 import toast from "react-hot-toast";
 import LordPhoto from "../assets/Photo.png";
 import { useTranslation } from "react-i18next";
+import { tv } from "../utils/translateValue";
 
 const Dashboard = () => {
   const { t, i18n } = useTranslation();
@@ -923,7 +924,7 @@ const Dashboard = () => {
                                 {family.headOfFamily?.fullName || "N/A"}
                               </div>
                               <div className="text-sm text-gray-500">
-                                {family.headOfFamily?.occupation || ""}
+                                {tv(family.headOfFamily?.occupation) || ""}
                               </div>
                             </div>
                           </div>
@@ -1113,7 +1114,7 @@ const Dashboard = () => {
                             {record.fullName || "N/A"}
                           </div>
                           <div className="text-sm text-gray-500">
-                            {record.relationToHead || ""}
+                            {tv(record.relationToHead) || ""}
                           </div>
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
@@ -1129,12 +1130,12 @@ const Dashboard = () => {
                         <td className="px-6 py-4 whitespace-nowrap">
                           <span className="px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
                             {record.ageAtDeath
-                              ? `${record.ageAtDeath} years`
+                              ? `${record.ageAtDeath} ${tv("years")}`
                               : "N/A"}
                           </span>
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                          {record.gender || "N/A"}
+                          {tv(record.gender) || "N/A"}
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                           {[record.village, record.city, record.area]
