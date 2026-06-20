@@ -30,7 +30,13 @@ import LordPhoto from "../assets/Photo.png";
 import { useTranslation } from "react-i18next";
 
 const Dashboard = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+
+  const toggleLanguage = () => {
+    const newLang = i18n.language === "en" ? "gu" : "en";
+    i18n.changeLanguage(newLang);
+    localStorage.setItem("language", newLang);
+  };
   const [showFamilyForm, setShowFamilyForm] = useState(false);
   const [showDeceasedForm, setShowDeceasedForm] = useState(false);
   const [deleteConfirmFamily, setDeleteConfirmFamily] = useState(null);
@@ -339,6 +345,21 @@ const Dashboard = () => {
 
   return (
     <div className="space-y-8 px-8 py-6">
+      {/* Language Toggle — fixed top-right */}
+      <div className="flex justify-end">
+        <button
+          onClick={toggleLanguage}
+          className="flex items-center px-4 py-2 rounded-lg border-2 border-blue-500 text-sm font-semibold bg-white shadow-md hover:bg-blue-50 transition-colors duration-200"
+          title="Switch Language / ભાષા બદલો"
+        >
+          {i18n.language === "en" ? (
+            <span className="text-blue-700">EN &nbsp;|&nbsp; ગુજ</span>
+          ) : (
+            <span className="text-blue-700">ગુજ &nbsp;|&nbsp; EN</span>
+          )}
+        </button>
+      </div>
+
       <ExportModal
         isOpen={showExportModal}
         onClose={() => setShowExportModal(false)}
