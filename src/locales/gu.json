@@ -67,6 +67,24 @@
   "loadingDeceasedRecords": "દિવંગત નોંધો લોડ થઈ રહી છે...",
   "showingResultsFor": "માટે પરિણામો બતાવી રહ્યા છીએ",
 
+  "srNo": "ક્રમ નં.",
+  "memberNo": "સભ્ય નં.",
+  "homeAddress": "ઘરનું સરનામું",
+  "homeArea": "ઘરનો વિસ્તાર",
+  "homeCity": "ઘરનું શહેર",
+  "homePincode": "ઘરનો પિનકોડ",
+  "correspondenceAddress": "પત્ર-વ્યવહારનું સરનામું",
+  "correspondenceCity": "પત્ર-વ્યવહારનું શહેર",
+  "correspondencePincode": "પત્ર-વ્યવહારનો પિનકોડ",
+  "notes": "નોંધ",
+  "relationToHead": "વડા સાથે સંબંધ",
+  "fatherHusbandName": "પિતા/પતિનું નામ",
+  "lastRitesPlace": "અંતિમ સંસ્કારનું સ્થળ",
+  "exportInfo": "નિકાસ માહિતી",
+  "exportDate": "નિકાસ તારીખ",
+  "generatedBy": "દ્વારા બનાવેલ",
+  "exportInfoSheet": "નિકાસ માહિતી",
+
   "values": {
     "Business": "વ્યવસાય",
     "Service": "સેવા",
@@ -113,8 +131,6 @@
     "Master's Degree": "અનુસ્નાતક",
     "Doctorate": "ડૉક્ટરેટ",
     "N/A": "N/A",
-    "years": "વર્ષ",
-    "RETIRED PRINCIPAL": "નિવૃત્ત આચાર્ય",
-    "BRESSING": "બ્રેસિંગ"
+    "years": "વર્ષ"
   }
 }
